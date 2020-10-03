@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-background="img/lightshadow.png">
+				<h1>SHADOWS</h1>
+				<p>
+					<small>Presented by <a style="color: #c4c4c4;" href="#">Cristian Lancheros</a>, <a
+							style="color: #c4c4c4;" href="#">Sebastian Camargo</a> and <a style="color: #c4c4c4;" href="#">Michael Rodriguez</a></small>
+				</p>
+				<a href="#">
+					<img src="img/logoUni.png" alt="universidad central logo"
+						style="height: 100px; margin: 0 auto 0rem auto; background: transparent;" class="demo-logo">
+				</a>
+			</section>
+			<!-- Introduccion -->
+			<section>
+				<section>
+					<h3>Introduccion</h3>
+					<p>Las sombras nos indican la ausencia de luz directa sobre una base por la presencia de un objeto
+						situado entre estos dos.</p>
+				</section>
+				<section>
+					<p>Dependiendo de la distancia y las areas, algunos lugares pueden estar en completa sombra (umbra)
+						y algunos pueden estar en media sombra (penumbra)</p>
+					<a href="#" class="navigate-down">
+						<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="500"
+							data-src="https://cglearn.codelight.eu/images/course/shadows/shadow.png" alt="Down arrow">
+					</a>
+					<p><span style="display: inline-block; font-size: 30px;" class="fragment fade-up">Si moviera la
+							pared más lejos, la umbra no la alcanzaría y la zona donde hay penumbra se llamaría
+							antumbra</span></p>
+				</section>
+				<section>
+					<p>Si modelamos la escena con una fuente de luz puntual o direccional, solamente generariamos umbra
+					</p>
+					<div style="width: auto; text-align: center; margin:auto;">
+
+						<img style="background: rgba(255,255,255,0.1); margin:5 auto; position: relative;"
+							data-src="https://cglearn.codelight.eu/images/course/shadows/shadow2.png" alt="Down arrow">
+
+
+						<img style="background: rgba(255,255,255,0.1); margin:5 auto; position: relative;"
+							data-src="https://cglearn.codelight.eu/images/course/shadows/shadow3.png" alt="Down arrow">
+
+					</div>
+				</section>
+				<section>
+					<div class="r-stack">
+						<div class="fragment fade-out" data-fragment-index="0">
+							<p style="font-size: 30px;">Entonces, debido a que nuestras fuentes de luz están modeladas
+								de esta manera, solo
+								proyectan una sombra dura. Para un efecto más realista, hay una variedad de técnicas que
+								intentan
+								difuminar los bordes de la umbra para crear una ilusión de penumbra o antumbra</p>
+							<a href="#">
+								<img style="background: rgba(255,255,255,0.1);" width="500"
+									data-src="img/shadowDiference.PNG" alt="Down arrow">
+							</a>
+						</div>
+						<div class="fragment current-visible" data-fragment-index="0">
+							<h2>Sombra Dura</h2>
+							<a href="#">
+								<img style="background: rgba(255,255,255,0.1);" width="800"
+									data-src="img/shadowDiference3.PNG" alt="Down arrow">
+							</a>
+						</div>
+						<div class="fragment current-visible" data-fragment-index="1">
+							<h2>Sombra Suave</h2>
+							<a href="#">
+								<img style="background: rgba(255,255,255,0.1);" width="800"
+									data-src="img/shadowDiference4.PNG" alt="Down arrow">
+							</a>
+						</div>
+						<div class="fragment current-visible" data-fragment-index="2">
+							<h2>Sombra Suave - Antumbra</h2>
+							<a href="#">
+								<img style="background: rgba(255,255,255,0.1);" width="800"
+									data-src="img/shadowDiference5.PNG" alt="Down arrow">
+							</a>
+						</div>
+						<div class="fragment">
+							<a href="#">
+								<img style="background: rgba(255,255,255,0.1);" width="800"
+									data-src="img/shadowDiference2.PNG" alt="Down arrow">
+							</a>
+						</div>
+					</div>
+
+				</section>
+				<section>
+					<h3>Definiciones</h3>
+					<ul>
+						<li><b>Umbra:</b> Sombra completa.</li>
+						<li><b>Penumbra:</b> Formado en el área parcialmente sombreada</li>
+						<li><b>Antumbra:</b> Es una media sombra cuya intensidad varia cuando se encuentran diferentes
+							penumbras</li>
+						<li><b>Hard shadow:</b> Sombra con bordes duros, la umbra</li>
+						<li><b>Soft shadow:</b> Sombra con bordes suaves</li>
+					</ul>
+				</section>
+			</section>
+			<!-- Introduccion -->
+			<section data-background="img/lightshadow2.png">
+				<section>
+					<div class="r-stack">
+						<div class="fragment fade-out" data-fragment-index="0">
+							<h3>Shadows in THREE.js</h3>
+							<p>Por defecto usa mapas de sombras lo que significa que por cada luz que proyecta sombras,
+								todos los objetos marcados para proyectar sombras son renderizados desde el punto de
+								vista
+								de la luz.</p>
+						</div>
+						<div class="fragment current-visible" data-fragment-index="0">
+							<a href="#">
+								<img style="background: rgba(255,255,255,0.1);" width="800" data-src="img/shadowMap.PNG"
+									alt="Down arrow">
+							</a>
+						</div>
+						<div class="fragment">
+							<p>Sin embargo esta solucion no parece ser la mas optima a medida que nuestra escena crece
+								en numero de luces y de objetos capaces proyectar sombra</p>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="r-stack">
+						<div class="fragment fade-out" data-fragment-index="0">
+					<p>Existen diferentes soluciones ademas de usa shadown mapping...</p>
+				</div>
+				<div class="fragment current-visible" data-fragment-index="0">
+					<p>Una solución común es tener varias luces pero solo una luz direccional que genere sombras</p>
+					<a href="#">
+						<img style="background: rgba(255,255,255,0.1);" width="800" data-src="https://s3.amazonaws.com/cgcookie-rails/uploads%2F1564423933489-AreaLightAdded.png"
+							alt="Down arrow">
+					</a>
+				</div>
+				<div class="fragment current-visible" data-fragment-index="1">
+					<p>Utilizar mapas de luz o mapas de oclusión ambiental para calcular previamente los efectos de la iluminación fuera de línea. Esto da como resultado iluminación estática</p>
+					<a href="#">
+						<img style="background: rgba(255,255,255,0.1);" width="600" data-src="https://miro.medium.com/max/3840/1*lsFSlF3rOZOFMTJ08N9k-Q.png"
+							alt="Down arrow">
+					</a>
+				</div>
+				<div class="fragment">
+					<p>Utilizar sombras falsas.Se coloca una textura en escala de grises en el plano que se aproxime a una sombra y se dibuja sobre el suelo debajo del objeto.</p>
+					<a href="#">
+						<img style="background: rgba(255,255,255,0.1);" width="600" data-src="img/sombraPlana.PNG"
+							alt="Down arrow">
+					</a>
+				</div>
+					</div>
+				</section>
+			</section>
+			<section data-background-iframe="https://codepen.io/es_sebas/embed/preview/oNxKBgq?height=265&theme-id=dark&default-tab=js,result" data-background-interactive>
+				
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
